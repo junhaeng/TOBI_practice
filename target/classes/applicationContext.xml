@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+    <!--dataSource.setDriverClass(com.mysql.jdbc.Driver.class);-->
+    <!--dataSource.setUrl("jdbc:mysql://localhost/testdb");-->
+    <!--dataSource.setUsername("testid");-->
+    <!--dataSource.setPassword("testid");-->
+    <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost/testdb"/>
+    <property name="username" value="testid"/>
+    <property name="password" value="testid"/>
+  </bean>
+
+
+  <bean id="userDao" class="test.UserDao">
+    <property name="dataSource" ref="dataSource"></property>
+  </bean>
+</beans>
